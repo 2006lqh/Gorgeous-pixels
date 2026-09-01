@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CS180 Portfolio</title>
+
+    <style>
+        /* ===============================
+           GLOBAL
+        ================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+            color: #ffffff;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(53, 103, 255, 0.22),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(151, 71, 255, 0.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(0, 210, 255, 0.10),
+                    transparent 30%
+                ),
+                #050816;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ===============================
+           BACKGROUND GRID
+        ================================ */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(100, 160, 255, 0.04) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(100, 160, 255, 0.04) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            pointer-events: none;
+            z-index: -2;
+        }
+
+
+        /* ===============================
+           GLOW EFFECTS
+        ================================ */
+
+        .glow {
+            position: fixed;
+
+            width: 400px;
+            height: 400px;
+
+            border-radius: 50%;
+
+            filter: blur(110px);
+
+            opacity: 0.13;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+        .glow-one {
+            background: #367cff;
+
+            top: -100px;
+            left: -100px;
+
+            animation: floatOne 8s ease-in-out infinite;
+        }
+
+        .glow-two {
+            background: #9a56ff;
+
+            right: -120px;
+            bottom: -100px;
+
+            animation: floatTwo 10s ease-in-out infinite;
+        }
+
+        @keyframes floatOne {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(60px, 50px);
+            }
+        }
+
+        @keyframes floatTwo {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-50px, -40px);
+            }
+        }
+
+
+        /* ===============================
+           NAVIGATION
+        ================================ */
+
+        nav {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 24px 7%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .logo {
+            font-size: 17px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #67d6ff;
+        }
+
+        .semester {
+            color: #8191b0;
+
+            font-family: monospace;
+
+            font-size: 13px;
+        }
+
+
+        /* ===============================
+           HERO
+        ================================ */
+
+        .hero {
+            width: 88%;
+
+            max-width: 1200px;
+
+            min-height: 75vh;
+
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding-top: 100px;
+        }
+
+        .course-tag {
+            width: fit-content;
+
+            padding: 8px 15px;
+
+            margin-bottom: 25px;
+
+            border-radius: 100px;
+
+            border:
+                1px solid rgba(91, 206, 255, 0.35);
+
+            background:
+                rgba(43, 133, 255, 0.08);
+
+            color: #7ddcff;
+
+            font-family: monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 1.5px;
+        }
+
+        h1 {
+            max-width: 900px;
+
+            font-size: clamp(58px, 8vw, 105px);
+
+            line-height: 0.95;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 30px;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #ffffff 10%,
+                    #96dfff 50%,
+                    #bfa1ff 90%
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: #91a1bf;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+        .hero-description strong {
+            color: #dbeaff;
+            font-weight: 500;
+        }
+
+
+        /* ===============================
+           STATUS
+        ================================ */
+
+        .status {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 35px;
+
+            font-family: monospace;
+
+            color: #7083a6;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #68e6ff;
+
+            box-shadow:
+                0 0 12px #68e6ff;
+        }
+
+
+        /* ===============================
+           PROJECTS
+        ================================ */
+
+        .projects {
+            width: 88%;
+
+            max-width: 1200px;
+
+            margin: 0 auto 120px;
+        }
+
+        .section-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            color: #66d7ff;
+
+            font-family: monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 38px;
+
+            letter-spacing: -1px;
+        }
+
+        .section-count {
+            color: #596b90;
+
+            font-family: monospace;
+
+            font-size: 12px;
+        }
+
+
+        /* ===============================
+           PROJECT CARD
+        ================================ */
+
+        .project-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 20px;
+        }
+
+        .project-card {
+            position: relative;
+
+            min-height: 300px;
+
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            text-decoration: none;
+
+            color: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.075),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border:
+                1px solid rgba(255, 255, 255, 0.10);
+
+            backdrop-filter: blur(12px);
+
+            -webkit-backdrop-filter: blur(12px);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(74, 157, 255, 0.15);
+
+            filter: blur(60px);
+
+            top: -80px;
+            right: -80px;
+
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(99, 212, 255, 0.45);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0, 78, 180, 0.18);
+        }
+
+        .project-card:hover::before {
+            background:
+                rgba(132, 93, 255, 0.22);
+        }
+
+        .project-number {
+            font-family: monospace;
+
+            color: #70d7ff;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+        }
+
+        .project-content h3 {
+            font-size: 28px;
+
+            margin-bottom: 12px;
+
+            letter-spacing: -0.5px;
+        }
+
+        .project-content p {
+            color: #8fa0be;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .project-footer {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 35px;
+
+            font-family: monospace;
+
+            font-size: 12px;
+
+            color: #6b7d9e;
+        }
+
+        .arrow {
+            color: #7bddff;
+
+            font-size: 22px;
+
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .arrow {
+            transform: translateX(6px);
+        }
+
+
+        /* ===============================
+           COMING SOON CARD
+        ================================ */
+
+        .coming-soon {
+            opacity: 0.45;
+
+            cursor: default;
+        }
+
+        .coming-soon:hover {
+            transform: none;
+
+            border-color:
+                rgba(255,255,255,0.10);
+
+            box-shadow: none;
+        }
+
+
+        /* ===============================
+           FOOTER
+        ================================ */
+
+        footer {
+            width: 88%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 35px 0;
+
+            border-top:
+                1px solid rgba(255,255,255,0.08);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #546585;
+
+            font-family: monospace;
+
+            font-size: 11px;
+        }
+
+
+        /* ===============================
+           RESPONSIVE
+        ================================ */
+
+        @media (max-width: 700px) {
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            .semester {
+                display: none;
+            }
+
+            .section-header {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 8px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Background glow -->
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            CS<span>180</span>
+        </div>
+
+        <div class="semester">
+            UC BERKELEY · FALL 2026
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="course-tag">
+            EECS · COMPUTER VISION
+        </div>
+
+        <h1>
+            Visual<br>
+            Computing.
+        </h1>
+
+        <p class="hero-description">
+
+            Welcome to my <strong>CS 180</strong> portfolio.
+
+            This website documents my projects in
+            computer vision and computational photography
+            at UC Berkeley.
+
+        </p>
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            PORTFOLIO ONLINE
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Projects -->
+
+    <section class="projects">
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="section-label">
+                    SELECTED WORK
+                </div>
+
+                <h2>
+                    Projects
+                </h2>
+
+            </div>
+
+            <div class="section-count">
+                01 / —
+            </div>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <!-- PROJECT 0 -->
+
+            <a class="project-card"
+               href="./0/index.html">
+
+                <div class="project-number">
+                    PROJECT / 00
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Becoming Friends<br>
+                        with Your Camera
+                    </h3>
+
+                    <p>
+                        Exploring perspective, focal length,
+                        portrait photography, architectural
+                        perspective, and the dolly zoom.
+                    </p>
+
+                </div>
+
+                <div class="project-footer">
+
+                    <span>
+                        AUG 2026
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- FUTURE PROJECT -->
+
+            <div class="project-card coming-soon">
+
+                <div class="project-number">
+                    PROJECT / 01
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Coming Soon
+                    </h3>
+
+                    <p>
+                        The next CS 180 project will appear here.
+                    </p>
+
+                </div>
+
+                <div class="project-footer">
+
+                    <span>
+                        UPCOMING
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FUTURE PROJECT -->
+
+            <div class="project-card coming-soon">
+
+                <div class="project-number">
+                    PROJECT / 02
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Coming Soon
+                    </h3>
+
+                    <p>
+                        More computer vision experiments
+                        will be added throughout the semester.
+                    </p>
+
+                </div>
+
+                <div class="project-footer">
+
+                    <span>
+                        UPCOMING
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <span>
+            CS180 · FALL 2026
+        </span>
+
+        <span>
+            YOUR NAME · UC BERKELEY
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>
