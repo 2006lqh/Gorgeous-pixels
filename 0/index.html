@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 0 | CS180</title>
+
+    <style>
+
+        /* =====================================
+           GLOBAL
+        ====================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+            color: #ffffff;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(50, 105, 255, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 25%,
+                    rgba(160, 80, 255, 0.15),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(0, 210, 255, 0.08),
+                    transparent 30%
+                ),
+                #050816;
+
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================
+           BACKGROUND GRID
+        ====================================== */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(100, 150, 255, 0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(100, 150, 255, 0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        /* =====================================
+           NAVIGATION
+        ====================================== */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background:
+                rgba(5, 8, 22, 0.72);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+
+            font-size: 17px;
+
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #67d7ff;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+
+            color: #91a2c3;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+
+            text-shadow:
+                0 0 10px rgba(100, 210, 255, 0.8);
+        }
+
+        .home-link {
+            color: #70d8ff !important;
+        }
+
+
+        /* =====================================
+           HERO
+        ====================================== */
+
+        .hero {
+            min-height: 95vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding:
+                130px 25px 70px;
+        }
+
+        .hero-content {
+            max-width: 950px;
+        }
+
+        .project-tag {
+            display: inline-block;
+
+            padding:
+                8px 17px;
+
+            margin-bottom: 28px;
+
+            border:
+                1px solid rgba(90, 210, 255, 0.4);
+
+            border-radius: 100px;
+
+            background:
+                rgba(60, 140, 255, 0.08);
+
+            color: #77d9ff;
+
+            font-family: monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(50px, 7.5vw, 100px);
+
+            line-height: 0.98;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 27px;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #ffffff 15%,
+                    #8bdfff 55%,
+                    #b995ff 90%
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size:
+                clamp(18px, 2vw, 25px);
+
+            color: #b4c1d9;
+
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #8191b2;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+        .scroll {
+            margin-top: 65px;
+
+            font-family: monospace;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color: #536787;
+        }
+
+        .scroll-arrow {
+            margin-top: 10px;
+
+            font-size: 20px;
+
+            animation:
+                bounce 1.8s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+
+        /* =====================================
+           MAIN
+        ====================================== */
+
+        main {
+            width: 88%;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .part {
+            padding:
+                100px 0;
+        }
+
+        .part-number {
+            font-family: monospace;
+
+            color: #67d8ff;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 13px;
+        }
+
+        .part-title {
+            font-size:
+                clamp(35px, 4vw, 52px);
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 20px;
+        }
+
+        .part-description {
+            max-width: 800px;
+
+            color: #8f9fbd;
+
+            line-height: 1.8;
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =====================================
+           PHOTO GRID
+        ====================================== */
+
+        .photo-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 24px;
+        }
+
+        .photo-card {
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.07),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.25);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .photo-card:hover {
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(90, 210, 255, 0.4);
+
+            box-shadow:
+                0 25px 70px
+                rgba(30, 100, 220, 0.15);
+        }
+
+        .photo-card img {
+            display: block;
+
+            width: 100%;
+
+            height: 500px;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.45s ease;
+        }
+
+        .photo-card:hover img {
+            transform:
+                scale(1.02);
+        }
+
+        .photo-info {
+            padding: 23px;
+        }
+
+        .photo-tag {
+            color: #69d5ff;
+
+            font-family: monospace;
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .photo-info h3 {
+            margin:
+                11px 0 8px;
+
+            font-size: 20px;
+        }
+
+        .photo-info p {
+            color: #8d9dbb;
+
+            font-size: 14px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =====================================
+           OBSERVATION
+        ====================================== */
+
+        .observation {
+            position: relative;
+
+            margin-top: 30px;
+
+            padding:
+                30px 34px;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(44, 120, 255, 0.10),
+                    rgba(157, 70, 255, 0.07)
+                );
+
+            border:
+                1px solid rgba(100, 180, 255, 0.16);
+        }
+
+        .observation::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 20px;
+
+            bottom: 20px;
+
+            width: 3px;
+
+            border-radius: 4px;
+
+            background:
+                linear-gradient(
+                    #57d8ff,
+                    #9a76ff
+                );
+        }
+
+        .observation h3 {
+            font-size: 17px;
+
+            margin-bottom: 13px;
+
+            color: #dceaff;
+        }
+
+        .observation p {
+            color: #9cacca;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================
+           DOLLY ZOOM
+        ====================================== */
+
+        .dolly-wrapper {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 10px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(70, 190, 255, 0.15),
+                    rgba(160, 80, 255, 0.12)
+                );
+
+            border:
+                1px solid rgba(110, 200, 255, 0.22);
+
+            box-shadow:
+                0 25px 80px rgba(0, 70, 180, 0.15);
+        }
+
+        .dolly-wrapper img {
+            display: block;
+
+            width: 100%;
+
+            border-radius: 16px;
+        }
+
+        .dolly-caption {
+            max-width: 850px;
+
+            margin:
+                25px auto 0;
+
+            text-align: center;
+
+            color: #8d9dbb;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================
+           DIVIDER
+        ====================================== */
+
+        .divider {
+            height: 1px;
+
+            width: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(90, 210, 255, 0.25),
+                    rgba(160, 100, 255, 0.25),
+                    transparent
+                );
+        }
+
+
+        /* =====================================
+           FINAL CARD
+        ====================================== */
+
+        .final-card {
+            margin:
+                40px 0 100px;
+
+            padding:
+                50px;
+
+            border-radius: 24px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(50, 120, 255, 0.1),
+                    rgba(140, 70, 255, 0.08)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+        }
+
+        .final-card h2 {
+            font-size: 33px;
+
+            margin-bottom: 18px;
+        }
+
+        .final-card p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #94a4c2;
+
+            line-height: 1.8;
+        }
+
+        .back-button {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding:
+                13px 23px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid rgba(100, 210, 255, 0.4);
+
+            color: #76d9ff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            color: #050816;
+
+            background: #76d9ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(100, 210, 255, 0.35);
+        }
+
+
+        /* =====================================
+           FOOTER
+        ====================================== */
+
+        footer {
+            padding:
+                45px 20px;
+
+            text-align: center;
+
+            border-top:
+                1px solid rgba(255,255,255,0.07);
+
+            color: #5c6c8c;
+
+            font-family: monospace;
+
+            font-size: 11px;
+
+            line-height: 2;
+        }
+
+
+        /* =====================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 760px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-card img {
+                height: auto;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            main {
+                width: 91%;
+            }
+
+            .part {
+                padding:
+                    75px 0;
+            }
+
+            .final-card {
+                padding:
+                    35px 22px;
+            }
+        }
+
+
+        /* =====================================
+           PRINT / PDF
+        ====================================== */
+
+        @media print {
+
+            nav,
+            .scroll,
+            .back-button {
+                display: none;
+            }
+
+            body {
+                background: white;
+
+                color: black;
+            }
+
+            body::before {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding:
+                    40px 20px;
+            }
+
+            .hero h1 {
+                color: black;
+
+                -webkit-text-fill-color: black;
+            }
+
+            .hero-description,
+            .hero-subtitle,
+            .part-description,
+            .photo-info p,
+            .observation p,
+            .dolly-caption,
+            .final-card p {
+                color: #333;
+            }
+
+            .photo-card,
+            .observation,
+            .dolly-wrapper,
+            .final-card {
+                background: white;
+
+                box-shadow: none;
+
+                border:
+                    1px solid #ddd;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         NAVIGATION
+    =============================== -->
+
+    <nav>
+
+        <div class="logo">
+            CS<span>180</span> / P0
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#part1">
+                    Portrait
+                </a>
+            </li>
+
+            <li>
+                <a href="#part2">
+                    Architecture
+                </a>
+            </li>
+
+            <li>
+                <a href="#part3">
+                    Dolly Zoom
+                </a>
+            </li>
+
+            <li>
+                <a class="home-link"
+                   href="../index.html">
+                    ← Portfolio
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ==============================
+         HERO
+    =============================== -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="project-tag">
+                CS180 · PROJECT 00
+            </div>
+
+            <h1>
+                Becoming Friends<br>
+                with Your Camera
+            </h1>
+
+            <p class="hero-subtitle">
+                Perspective · Focal Length · Photography
+            </p>
+
+            <p class="hero-description">
+
+                This project explores how camera position and
+                focal length affect perspective.
+
+                Through portraits, architectural photography,
+                and the dolly zoom, I investigate how changing
+                the center of projection changes the visual
+                relationships between objects in a scene.
+
+            </p>
+
+            <div class="scroll">
+
+                SCROLL TO EXPLORE
+
+                <div class="scroll-arrow">
+                    ↓
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ==============================
+             PART 1
+        =============================== -->
+
+        <section class="part" id="part1">
+
+            <div class="part-number">
+                01 / SELFIE
+            </div>
+
+            <h2 class="part-title">
+                The Wrong Way vs. The Right Way
+            </h2>
+
+            <p class="part-description">
+
+                First, I photographed the same subject from
+                two different distances.
+
+                For the first image, the camera was placed
+                close to the subject.
+
+                For the second image, I moved farther away
+                and zoomed in so that the face remained
+                approximately the same size in the frame.
+
+            </p>
+
+
+            <div class="photo-grid">
+
+
+                <!-- CLOSE PHOTO -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="./media/selfie_close.jpg"
+                        alt="Portrait photographed from close range">
+
+                    <div class="photo-info">
+
+                        <span class="photo-tag">
+                            CLOSE DISTANCE · WIDE
+                        </span>
+
+                        <h3>
+                            Close-Up Portrait
+                        </h3>
+
+                        <p>
+                            The camera is positioned close to
+                            the subject, producing stronger
+                            perspective distortion.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAR PHOTO -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="./media/selfie_zoom.jpg"
+                        alt="Portrait photographed from farther away">
+
+                    <div class="photo-info">
+
+                        <span class="photo-tag">
+                            FAR DISTANCE · ZOOM
+                        </span>
+
+                        <h3>
+                            Step Back + Zoom In
+                        </h3>
+
+                        <p>
+                            The camera is moved farther away
+                            while zoom is used to maintain
+                            approximately the same framing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="observation">
+
+                <h3>
+                    Observation
+                </h3>
+
+                <p>
+
+                    In the close-up image, facial features that
+                    are closer to the camera appear relatively
+                    larger. For example, the nose may appear
+                    more prominent compared with the ears or
+                    sides of the face.
+
+                    When the camera moves farther away, the
+                    depth differences across the face become
+                    smaller relative to the total camera distance.
+                    Zooming in restores the size of the face
+                    without recreating the same perspective
+                    distortion.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <div class="divider"></div>
+
+
+
+        <!-- ==============================
+             PART 2
+        =============================== -->
+
+        <section class="part" id="part2">
+
+            <div class="part-number">
+                02 / ARCHITECTURE
+            </div>
+
+            <h2 class="part-title">
+                Perspective Compression
+            </h2>
+
+            <p class="part-description">
+
+                Next, I repeated a similar experiment using
+                an architectural scene.
+
+                I first photographed the scene from farther
+                away using zoom. I then walked closer to the
+                scene and reduced the zoom while attempting
+                to keep the main subject approximately the
+                same size in the image.
+
+            </p>
+
+
+
+            <div class="photo-grid">
+
+
+                <!-- FAR ARCHITECTURE -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="./media/architecture_zoom.jpg"
+                        alt="Architecture photographed from far away with zoom">
+
+                    <div class="photo-info">
+
+                        <span class="photo-tag">
+                            FAR · ZOOMED
+                        </span>
+
+                        <h3>
+                            Telephoto View
+                        </h3>
+
+                        <p>
+                            Taken from farther away using
+                            greater zoom.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CLOSE ARCHITECTURE -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="./media/architecture_close.jpg"
+                        alt="Architecture photographed from closer range">
+
+                    <div class="photo-info">
+
+                        <span class="photo-tag">
+                            CLOSE · WIDE
+                        </span>
+
+                        <h3>
+                            Walked-Up View
+                        </h3>
+
+                        <p>
+                            Taken after physically moving
+                            closer to the scene and using
+                            less zoom.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="observation">
+
+                <h3>
+                    Observation
+                </h3>
+
+                <p>
+
+                    In the image captured from farther away,
+                    objects at different depths appear more
+                    similar in size, creating a visually
+                    compressed scene.
+
+                    After moving closer, differences in depth
+                    become more noticeable because nearby
+                    objects change in apparent size more
+                    dramatically than distant objects.
+
+                    This demonstrates that perspective is
+                    determined mainly by camera position,
+                    while focal length changes the field of
+                    view and framing.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <div class="divider"></div>
+
+
+
+        <!-- ==============================
+             PART 3
+        =============================== -->
+
+        <section class="part" id="part3">
+
+            <div class="part-number">
+                03 / DOLLY ZOOM
+            </div>
+
+            <h2 class="part-title">
+                The Dolly Zoom
+            </h2>
+
+            <p class="part-description">
+
+                Finally, I created a dolly zoom by changing
+                the camera position while simultaneously
+                changing the focal length.
+
+                As I moved farther from the subject, I zoomed
+                in so that the subject remained approximately
+                the same size in every frame.
+
+            </p>
+
+
+
+            <div class="dolly-wrapper">
+
+                <img
+                    src="./media/dolly_zoom.gif"
+                    alt="Dolly zoom animation">
+
+            </div>
+
+
+
+            <p class="dolly-caption">
+
+                The main subject remains approximately fixed
+                in size while the background appears to expand
+                or compress. The changing camera position
+                changes perspective, while zoom compensates
+                for the change in apparent subject size.
+
+            </p>
+
+
+
+            <div class="observation">
+
+                <h3>
+                    Why does this happen?
+                </h3>
+
+                <p>
+
+                    Moving the camera changes the center of
+                    projection and therefore changes the
+                    geometric relationship between the subject
+                    and the background.
+
+                    Changing focal length alone does not create
+                    this perspective change. Instead, zoom is
+                    used to maintain the subject's apparent
+                    size while the camera movement continuously
+                    changes the perspective.
+
+                    Combining the two produces the distinctive
+                    dolly zoom effect.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             FINAL
+        =============================== -->
+
+        <section class="final-card">
+
+            <h2>
+                What I Learned
+            </h2>
+
+            <p>
+
+                This project helped me understand the difference
+                between perspective and zoom.
+
+                Camera position determines perspective because
+                it changes the relative geometry between objects
+                and the center of projection.
+
+                Focal length primarily controls field of view
+                and magnification.
+
+                By combining both ideas, the dolly zoom makes
+                their distinction especially easy to observe.
+
+            </p>
+
+
+            <a
+                class="back-button"
+                href="../index.html">
+
+                ← Back to Portfolio
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <footer>
+
+        <div>
+            CS180 · INTRODUCTION TO COMPUTER VISION
+            AND COMPUTATIONAL PHOTOGRAPHY
+        </div>
+
+        <div>
+            UC BERKELEY · FALL 2026
+        </div>
+
+        <div>
+            YOUR NAME · PROJECT 0
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
