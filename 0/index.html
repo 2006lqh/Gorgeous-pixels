@@ -4,15 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Project 0 | CS180</title>
 
     <style>
-
-        /* =====================================
-           GLOBAL
-        ====================================== */
-
         * {
             margin: 0;
             padding: 0;
@@ -26,9 +20,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
             color: #ffffff;
-
             background:
                 radial-gradient(
                     circle at 10% 10%,
@@ -46,22 +38,14 @@
                     transparent 30%
                 ),
                 #050816;
-
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-
-        /* =====================================
-           BACKGROUND GRID
-        ====================================== */
-
         body::before {
             content: "";
-
             position: fixed;
             inset: 0;
-
             background-image:
                 linear-gradient(
                     rgba(100, 150, 255, 0.035) 1px,
@@ -72,49 +56,30 @@
                     rgba(100, 150, 255, 0.035) 1px,
                     transparent 1px
                 );
-
             background-size: 45px 45px;
-
             pointer-events: none;
             z-index: -1;
         }
 
-
-        /* =====================================
-           NAVIGATION
-        ====================================== */
-
         nav {
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100%;
-
             padding: 18px 7%;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            background:
-                rgba(5, 8, 22, 0.72);
-
+            background: rgba(5, 8, 22, 0.72);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-
-            border-bottom:
-                1px solid rgba(255, 255, 255, 0.08);
-
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             z-index: 1000;
         }
 
         .logo {
             font-weight: 700;
-
             font-size: 17px;
-
             letter-spacing: 2px;
         }
 
@@ -124,49 +89,33 @@
 
         nav ul {
             list-style: none;
-
             display: flex;
-
             gap: 28px;
         }
 
         nav a {
             text-decoration: none;
-
             color: #91a2c3;
-
             font-size: 13px;
-
             transition: 0.3s;
         }
 
         nav a:hover {
             color: #ffffff;
-
-            text-shadow:
-                0 0 10px rgba(100, 210, 255, 0.8);
+            text-shadow: 0 0 10px rgba(100, 210, 255, 0.8);
         }
 
         .home-link {
             color: #70d8ff !important;
         }
 
-
-        /* =====================================
-           HERO
-        ====================================== */
-
         .hero {
             min-height: 95vh;
-
             display: flex;
             justify-content: center;
             align-items: center;
-
             text-align: center;
-
-            padding:
-                130px 25px 70px;
+            padding: 130px 25px 70px;
         }
 
         .hero-content {
@@ -175,39 +124,22 @@
 
         .project-tag {
             display: inline-block;
-
-            padding:
-                8px 17px;
-
+            padding: 8px 17px;
             margin-bottom: 28px;
-
-            border:
-                1px solid rgba(90, 210, 255, 0.4);
-
+            border: 1px solid rgba(90, 210, 255, 0.4);
             border-radius: 100px;
-
-            background:
-                rgba(60, 140, 255, 0.08);
-
+            background: rgba(60, 140, 255, 0.08);
             color: #77d9ff;
-
             font-family: monospace;
-
             font-size: 12px;
-
             letter-spacing: 2px;
         }
 
         .hero h1 {
-            font-size:
-                clamp(50px, 7.5vw, 100px);
-
+            font-size: clamp(50px, 7.5vw, 100px);
             line-height: 0.98;
-
             letter-spacing: -4px;
-
             margin-bottom: 27px;
-
             background:
                 linear-gradient(
                     110deg,
@@ -215,58 +147,40 @@
                     #8bdfff 55%,
                     #b995ff 90%
                 );
-
             -webkit-background-clip: text;
-
             background-clip: text;
-
             color: transparent;
         }
 
         .hero-subtitle {
-            font-size:
-                clamp(18px, 2vw, 25px);
-
+            font-size: clamp(18px, 2vw, 25px);
             color: #b4c1d9;
-
             margin-bottom: 24px;
         }
 
         .hero-description {
             max-width: 720px;
-
             margin: auto;
-
             color: #8191b2;
-
             line-height: 1.8;
-
             font-size: 15px;
         }
 
         .scroll {
             margin-top: 65px;
-
             font-family: monospace;
-
             font-size: 11px;
-
             letter-spacing: 2px;
-
             color: #536787;
         }
 
         .scroll-arrow {
             margin-top: 10px;
-
             font-size: 20px;
-
-            animation:
-                bounce 1.8s infinite;
+            animation: bounce 1.8s infinite;
         }
 
         @keyframes bounce {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -277,87 +191,54 @@
             }
         }
 
-
-        /* =====================================
-           MAIN
-        ====================================== */
-
         main {
             width: 88%;
-
             max-width: 1200px;
-
             margin: auto;
         }
 
         .part {
-            padding:
-                100px 0;
+            padding: 100px 0;
         }
 
         .part-number {
             font-family: monospace;
-
             color: #67d8ff;
-
             font-size: 13px;
-
             letter-spacing: 2px;
-
             margin-bottom: 13px;
         }
 
         .part-title {
-            font-size:
-                clamp(35px, 4vw, 52px);
-
+            font-size: clamp(35px, 4vw, 52px);
             letter-spacing: -1.5px;
-
             margin-bottom: 20px;
         }
 
         .part-description {
             max-width: 800px;
-
             color: #8f9fbd;
-
             line-height: 1.8;
-
             margin-bottom: 45px;
         }
 
-
-        /* =====================================
-           PHOTO GRID
-        ====================================== */
-
         .photo-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
 
         .photo-card {
             border-radius: 20px;
-
             overflow: hidden;
-
             background:
                 linear-gradient(
                     145deg,
                     rgba(255, 255, 255, 0.07),
                     rgba(255, 255, 255, 0.025)
                 );
-
-            border:
-                1px solid rgba(255, 255, 255, 0.1);
-
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.25);
-
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
             transition:
                 transform 0.35s ease,
                 border-color 0.35s ease,
@@ -365,33 +246,21 @@
         }
 
         .photo-card:hover {
-            transform:
-                translateY(-7px);
-
-            border-color:
-                rgba(90, 210, 255, 0.4);
-
-            box-shadow:
-                0 25px 70px
-                rgba(30, 100, 220, 0.15);
+            transform: translateY(-7px);
+            border-color: rgba(90, 210, 255, 0.4);
+            box-shadow: 0 25px 70px rgba(30, 100, 220, 0.15);
         }
 
         .photo-card img {
             display: block;
-
             width: 100%;
-
             height: 500px;
-
             object-fit: cover;
-
-            transition:
-                transform 0.45s ease;
+            transition: transform 0.45s ease;
         }
 
         .photo-card:hover img {
-            transform:
-                scale(1.02);
+            transform: scale(1.02);
         }
 
         .photo-info {
@@ -400,72 +269,45 @@
 
         .photo-tag {
             color: #69d5ff;
-
             font-family: monospace;
-
             font-size: 11px;
-
             letter-spacing: 1.5px;
         }
 
         .photo-info h3 {
-            margin:
-                11px 0 8px;
-
+            margin: 11px 0 8px;
             font-size: 20px;
         }
 
         .photo-info p {
             color: #8d9dbb;
-
             font-size: 14px;
-
             line-height: 1.65;
         }
 
-
-        /* =====================================
-           OBSERVATION
-        ====================================== */
-
         .observation {
             position: relative;
-
             margin-top: 30px;
-
-            padding:
-                30px 34px;
-
+            padding: 30px 34px;
             border-radius: 18px;
-
             overflow: hidden;
-
             background:
                 linear-gradient(
                     135deg,
                     rgba(44, 120, 255, 0.10),
                     rgba(157, 70, 255, 0.07)
                 );
-
-            border:
-                1px solid rgba(100, 180, 255, 0.16);
+            border: 1px solid rgba(100, 180, 255, 0.16);
         }
 
         .observation::before {
             content: "";
-
             position: absolute;
-
             left: 0;
-
             top: 20px;
-
             bottom: 20px;
-
             width: 3px;
-
             border-radius: 4px;
-
             background:
                 linear-gradient(
                     #57d8ff,
@@ -475,81 +317,49 @@
 
         .observation h3 {
             font-size: 17px;
-
             margin-bottom: 13px;
-
             color: #dceaff;
         }
 
         .observation p {
             color: #9cacca;
-
             font-size: 15px;
-
             line-height: 1.8;
         }
 
-
-        /* =====================================
-           DOLLY ZOOM
-        ====================================== */
-
         .dolly-wrapper {
             max-width: 900px;
-
             margin: auto;
-
             padding: 10px;
-
             border-radius: 24px;
-
             background:
                 linear-gradient(
                     135deg,
                     rgba(70, 190, 255, 0.15),
                     rgba(160, 80, 255, 0.12)
                 );
-
-            border:
-                1px solid rgba(110, 200, 255, 0.22);
-
-            box-shadow:
-                0 25px 80px rgba(0, 70, 180, 0.15);
+            border: 1px solid rgba(110, 200, 255, 0.22);
+            box-shadow: 0 25px 80px rgba(0, 70, 180, 0.15);
         }
 
         .dolly-wrapper img {
             display: block;
-
             width: 100%;
-
             border-radius: 16px;
         }
 
         .dolly-caption {
             max-width: 850px;
-
-            margin:
-                25px auto 0;
-
+            margin: 25px auto 0;
             text-align: center;
-
             color: #8d9dbb;
-
             font-size: 14px;
-
             line-height: 1.8;
         }
 
-
-        /* =====================================
-           DIVIDER
-        ====================================== */
-
         .divider {
             height: 1px;
-
             width: 100%;
-
             background:
                 linear-gradient(
                     90deg,
@@ -560,111 +370,61 @@
                 );
         }
 
-
-        /* =====================================
-           FINAL CARD
-        ====================================== */
-
         .final-card {
-            margin:
-                40px 0 100px;
-
-            padding:
-                50px;
-
+            margin: 40px 0 100px;
+            padding: 50px;
             border-radius: 24px;
-
             text-align: center;
-
             background:
                 linear-gradient(
                     135deg,
                     rgba(50, 120, 255, 0.1),
                     rgba(140, 70, 255, 0.08)
                 );
-
-            border:
-                1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .final-card h2 {
             font-size: 33px;
-
             margin-bottom: 18px;
         }
 
         .final-card p {
             max-width: 760px;
-
             margin: auto;
-
             color: #94a4c2;
-
             line-height: 1.8;
         }
 
         .back-button {
             display: inline-block;
-
             margin-top: 30px;
-
-            padding:
-                13px 23px;
-
+            padding: 13px 23px;
             border-radius: 12px;
-
-            border:
-                1px solid rgba(100, 210, 255, 0.4);
-
+            border: 1px solid rgba(100, 210, 255, 0.4);
             color: #76d9ff;
-
             text-decoration: none;
-
             font-size: 13px;
-
             transition: 0.3s;
         }
 
         .back-button:hover {
             color: #050816;
-
             background: #76d9ff;
-
-            box-shadow:
-                0 0 30px
-                rgba(100, 210, 255, 0.35);
+            box-shadow: 0 0 30px rgba(100, 210, 255, 0.35);
         }
 
-
-        /* =====================================
-           FOOTER
-        ====================================== */
-
         footer {
-            padding:
-                45px 20px;
-
+            padding: 45px 20px;
             text-align: center;
-
-            border-top:
-                1px solid rgba(255,255,255,0.07);
-
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
             color: #5c6c8c;
-
             font-family: monospace;
-
             font-size: 11px;
-
             line-height: 2;
         }
 
-
-        /* =====================================
-           MOBILE
-        ====================================== */
-
         @media (max-width: 760px) {
-
             nav ul {
                 display: none;
             }
@@ -686,85 +446,262 @@
             }
 
             .part {
-                padding:
-                    75px 0;
+                padding: 75px 0;
             }
 
             .final-card {
-                padding:
-                    35px 22px;
+                padding: 35px 22px;
             }
         }
 
-
-        /* =====================================
-           PRINT / PDF
-        ====================================== */
-
         @media print {
+
+            @page {
+                size: Letter;
+                margin: 0.55in;
+            }
+
+            html,
+            body {
+                background: white !important;
+                color: black !important;
+                width: 100% !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+
+            body::before {
+                display: none !important;
+            }
+
+            img {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
 
             nav,
             .scroll,
             .back-button {
-                display: none;
-            }
-
-            body {
-                background: white;
-
-                color: black;
-            }
-
-            body::before {
-                display: none;
+                display: none !important;
             }
 
             .hero {
-                min-height: auto;
-
-                padding:
-                    40px 20px;
+                min-height: auto !important;
+                padding: 30px 10px 40px !important;
+                break-after: avoid !important;
+                page-break-after: avoid !important;
             }
 
             .hero h1 {
-                color: black;
-
-                -webkit-text-fill-color: black;
+                color: black !important;
+                background: none !important;
+                -webkit-background-clip: initial !important;
+                background-clip: initial !important;
+                -webkit-text-fill-color: black !important;
+                font-size: 46px !important;
+                line-height: 1.05 !important;
+                letter-spacing: -2px !important;
             }
 
-            .hero-description,
-            .hero-subtitle,
-            .part-description,
-            .photo-info p,
-            .observation p,
-            .dolly-caption,
-            .final-card p {
-                color: #333;
+            .project-tag {
+                color: #333 !important;
+                background: white !important;
+                border: 1px solid #bbb !important;
             }
 
-            .photo-card,
-            .observation,
-            .dolly-wrapper,
+            .hero-subtitle {
+                color: #333 !important;
+            }
+
+            .hero-description {
+                color: #444 !important;
+            }
+
+            main {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+            }
+
+            .part {
+                padding: 35px 0 !important;
+            }
+
+            .part-number {
+                color: #245b8f !important;
+            }
+
+            .part-title {
+                color: black !important;
+                font-size: 30px !important;
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+            }
+
+            .part-description {
+                color: #333 !important;
+                margin-bottom: 24px !important;
+            }
+
+            .photo-grid {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .photo-card {
+                display: block !important;
+                width: 100% !important;
+                margin: 0 0 30px !important;
+                background: white !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                overflow: visible !important;
+                transform: none !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .photo-card:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+
+            .photo-card img {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+                transform: none !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .photo-info {
+                padding: 16px 18px !important;
+            }
+
+            .photo-tag {
+                color: #245b8f !important;
+            }
+
+            .photo-info h3 {
+                color: black !important;
+            }
+
+            .photo-info p {
+                color: #333 !important;
+            }
+
+            .observation {
+                display: block !important;
+                background: white !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                overflow: visible !important;
+                margin-top: 20px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .observation::before {
+                display: none !important;
+            }
+
+            .observation h3 {
+                color: black !important;
+            }
+
+            .observation p {
+                color: #333 !important;
+            }
+
+            .dolly-wrapper {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                background: white !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                overflow: visible !important;
+                padding: 5px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .dolly-wrapper img {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .dolly-caption {
+                color: #333 !important;
+            }
+
+            .divider {
+                background: #ccc !important;
+                height: 1px !important;
+            }
+
             .final-card {
-                background: white;
+                background: white !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                color: black !important;
+                margin: 30px 0 20px !important;
+                padding: 30px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
 
-                box-shadow: none;
+            .final-card h2 {
+                color: black !important;
+            }
 
-                border:
-                    1px solid #ddd;
+            .final-card p {
+                color: #333 !important;
+            }
+
+            footer {
+                color: #555 !important;
+                border-top: 1px solid #ccc !important;
+                padding: 25px 10px !important;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            p {
+                orphans: 3;
+                widows: 3;
             }
         }
 
     </style>
 </head>
 
-
 <body>
-
-
-    <!-- ==============================
-         NAVIGATION
-    =============================== -->
 
     <nav>
 
@@ -793,8 +730,7 @@
             </li>
 
             <li>
-                <a class="home-link"
-                   href="../index.html">
+                <a class="home-link" href="../index.html">
                     ← Portfolio
                 </a>
             </li>
@@ -802,12 +738,6 @@
         </ul>
 
     </nav>
-
-
-
-    <!-- ==============================
-         HERO
-    =============================== -->
 
     <header class="hero">
 
@@ -827,15 +757,10 @@
             </p>
 
             <p class="hero-description">
-
-                This project explores how camera position and
-                focal length affect perspective.
-
-                Through portraits, architectural photography,
-                and the dolly zoom, I investigate how changing
-                the center of projection changes the visual
-                relationships between objects in a scene.
-
+                This project explores how camera position and focal length affect
+                perspective. Through portraits, architectural photography, and the
+                dolly zoom, I investigate how changing the center of projection
+                changes the visual relationships between objects in a scene.
             </p>
 
             <div class="scroll">
@@ -852,14 +777,7 @@
 
     </header>
 
-
-
     <main>
-
-
-        <!-- ==============================
-             PART 1
-        =============================== -->
 
         <section class="part" id="part1">
 
@@ -872,24 +790,14 @@
             </h2>
 
             <p class="part-description">
-
-                First, I photographed the same subject from
-                two different distances.
-
-                For the first image, the camera was placed
-                close to the subject.
-
-                For the second image, I moved farther away
-                and zoomed in so that the face remained
-                approximately the same size in the frame.
-
+                First, I photographed the same subject from two different
+                distances. For the first image, the camera was placed close to
+                the subject. For the second image, I moved farther away and
+                zoomed in so that the face remained approximately the same size
+                in the frame.
             </p>
 
-
             <div class="photo-grid">
-
-
-                <!-- CLOSE PHOTO -->
 
                 <div class="photo-card">
 
@@ -908,18 +816,13 @@
                         </h3>
 
                         <p>
-                            The camera is positioned close to
-                            the subject, producing stronger
-                            perspective distortion.
+                            The camera is positioned close to the subject,
+                            producing stronger perspective distortion.
                         </p>
 
                     </div>
 
                 </div>
-
-
-
-                <!-- FAR PHOTO -->
 
                 <div class="photo-card">
 
@@ -938,9 +841,8 @@
                         </h3>
 
                         <p>
-                            The camera is moved farther away
-                            while zoom is used to maintain
-                            approximately the same framing.
+                            The camera is moved farther away while zoom is
+                            used to maintain approximately the same framing.
                         </p>
 
                     </div>
@@ -949,8 +851,6 @@
 
             </div>
 
-
-
             <div class="observation">
 
                 <h3>
@@ -958,35 +858,20 @@
                 </h3>
 
                 <p>
-
-                    In the close-up image, facial features that
-                    are closer to the camera appear relatively
-                    larger. For example, the nose may appear
-                    more prominent compared with the ears or
-                    sides of the face.
-
-                    When the camera moves farther away, the
-                    depth differences across the face become
-                    smaller relative to the total camera distance.
-                    Zooming in restores the size of the face
-                    without recreating the same perspective
-                    distortion.
-
+                    In the close-up image, facial features that are closer to
+                    the camera appear relatively larger. For example, the nose
+                    may appear more prominent compared with the ears or sides
+                    of the face. When the camera moves farther away, the depth
+                    differences across the face become smaller relative to the
+                    total camera distance. Zooming in restores the size of the
+                    face without recreating the same perspective distortion.
                 </p>
 
             </div>
 
         </section>
 
-
-
         <div class="divider"></div>
-
-
-
-        <!-- ==============================
-             PART 2
-        =============================== -->
 
         <section class="part" id="part2">
 
@@ -999,24 +884,14 @@
             </h2>
 
             <p class="part-description">
-
-                Next, I repeated a similar experiment using
-                an architectural scene.
-
-                I first photographed the scene from farther
-                away using zoom. I then walked closer to the
-                scene and reduced the zoom while attempting
-                to keep the main subject approximately the
+                Next, I repeated a similar experiment using an architectural
+                scene. I first photographed the scene from farther away using
+                zoom. I then walked closer to the scene and reduced the zoom
+                while attempting to keep the main subject approximately the
                 same size in the image.
-
             </p>
 
-
-
             <div class="photo-grid">
-
-
-                <!-- FAR ARCHITECTURE -->
 
                 <div class="photo-card">
 
@@ -1035,17 +910,12 @@
                         </h3>
 
                         <p>
-                            Taken from farther away using
-                            greater zoom.
+                            Taken from farther away using greater zoom.
                         </p>
 
                     </div>
 
                 </div>
-
-
-
-                <!-- CLOSE ARCHITECTURE -->
 
                 <div class="photo-card">
 
@@ -1064,9 +934,8 @@
                         </h3>
 
                         <p>
-                            Taken after physically moving
-                            closer to the scene and using
-                            less zoom.
+                            Taken after physically moving closer to the scene
+                            and using less zoom.
                         </p>
 
                     </div>
@@ -1075,8 +944,6 @@
 
             </div>
 
-
-
             <div class="observation">
 
                 <h3>
@@ -1084,37 +951,21 @@
                 </h3>
 
                 <p>
-
-                    In the image captured from farther away,
-                    objects at different depths appear more
-                    similar in size, creating a visually
-                    compressed scene.
-
-                    After moving closer, differences in depth
-                    become more noticeable because nearby
-                    objects change in apparent size more
-                    dramatically than distant objects.
-
-                    This demonstrates that perspective is
-                    determined mainly by camera position,
-                    while focal length changes the field of
-                    view and framing.
-
+                    In the image captured from farther away, objects at
+                    different depths appear more similar in size, creating a
+                    visually compressed scene. After moving closer, differences
+                    in depth become more noticeable because nearby objects
+                    change in apparent size more dramatically than distant
+                    objects. This demonstrates that perspective is determined
+                    mainly by camera position, while focal length changes the
+                    field of view and framing.
                 </p>
 
             </div>
 
         </section>
 
-
-
         <div class="divider"></div>
-
-
-
-        <!-- ==============================
-             PART 3
-        =============================== -->
 
         <section class="part" id="part3">
 
@@ -1127,18 +978,11 @@
             </h2>
 
             <p class="part-description">
-
-                Finally, I created a dolly zoom by changing
-                the camera position while simultaneously
-                changing the focal length.
-
-                As I moved farther from the subject, I zoomed
-                in so that the subject remained approximately
-                the same size in every frame.
-
+                Finally, I created a dolly zoom by changing the camera position
+                while simultaneously changing the focal length. As I moved
+                farther from the subject, I zoomed in so that the subject
+                remained approximately the same size in every frame.
             </p>
-
-
 
             <div class="dolly-wrapper">
 
@@ -1148,19 +992,12 @@
 
             </div>
 
-
-
             <p class="dolly-caption">
-
-                The main subject remains approximately fixed
-                in size while the background appears to expand
-                or compress. The changing camera position
-                changes perspective, while zoom compensates
-                for the change in apparent subject size.
-
+                The main subject remains approximately fixed in size while the
+                background appears to expand or compress. The changing camera
+                position changes perspective, while zoom compensates for the
+                change in apparent subject size.
             </p>
-
-
 
             <div class="observation">
 
@@ -1169,32 +1006,19 @@
                 </h3>
 
                 <p>
-
-                    Moving the camera changes the center of
-                    projection and therefore changes the
-                    geometric relationship between the subject
-                    and the background.
-
-                    Changing focal length alone does not create
-                    this perspective change. Instead, zoom is
-                    used to maintain the subject's apparent
-                    size while the camera movement continuously
-                    changes the perspective.
-
-                    Combining the two produces the distinctive
-                    dolly zoom effect.
-
+                    Moving the camera changes the center of projection and
+                    therefore changes the geometric relationship between the
+                    subject and the background. Changing focal length alone
+                    does not create this perspective change. Instead, zoom is
+                    used to maintain the subject's apparent size while the
+                    camera movement continuously changes the perspective.
+                    Combining the two produces the distinctive dolly zoom
+                    effect.
                 </p>
 
             </div>
 
         </section>
-
-
-
-        <!-- ==============================
-             FINAL
-        =============================== -->
 
         <section class="final-card">
 
@@ -1203,47 +1027,28 @@
             </h2>
 
             <p>
-
-                This project helped me understand the difference
-                between perspective and zoom.
-
-                Camera position determines perspective because
-                it changes the relative geometry between objects
-                and the center of projection.
-
-                Focal length primarily controls field of view
-                and magnification.
-
-                By combining both ideas, the dolly zoom makes
-                their distinction especially easy to observe.
-
+                This project helped me understand the difference between
+                perspective and zoom. Camera position determines perspective
+                because it changes the relative geometry between objects and
+                the center of projection. Focal length primarily controls field
+                of view and magnification. By combining both ideas, the dolly
+                zoom makes their distinction especially easy to observe.
             </p>
-
 
             <a
                 class="back-button"
                 href="../index.html">
-
                 ← Back to Portfolio
-
             </a>
 
         </section>
 
-
     </main>
-
-
-
-    <!-- ==============================
-         FOOTER
-    =============================== -->
 
     <footer>
 
         <div>
-            CS180 · INTRODUCTION TO COMPUTER VISION
-            AND COMPUTATIONAL PHOTOGRAPHY
+            CS180 · INTRODUCTION TO COMPUTER VISION AND COMPUTATIONAL PHOTOGRAPHY
         </div>
 
         <div>
@@ -1255,7 +1060,6 @@
         </div>
 
     </footer>
-
 
 </body>
 
