@@ -1,0 +1,57 @@
+{
+  "course": {
+    "assignment": "https://cal-cs180.github.io/fa26/hw/proj1/index.html",
+    "download": "https://drive.google.com/file/d/1gJT5EcsANLwNVEhswTKQ3sR81wTEF0tu/view",
+    "count": 14
+  },
+  "custom": [
+    {
+      "filename": "custom_yasnaya_polyana.tif",
+      "label": "Yasnaya Polyana",
+      "item_id": "2018679023",
+      "item_url": "https://www.loc.gov/item/2018679023/",
+      "title": "V I︠A︡snoĭ poli︠a︡ni︠e︡",
+      "date": "1905-01-01",
+      "resource_caption": "digital file from glass neg.",
+      "resource_url": "https://www.loc.gov/resource/prok.00159/",
+      "download_url": "https://tile.loc.gov/storage-services/master/pnp/prok/00100/00159a.tif",
+      "bytes": 74163674,
+      "sha256": "08e2dceaa5d0faf24386470d5096e09e3aec8db381fc42759e8d7cf9a08274d5",
+      "rights_advisory": [
+        "No known restrictions on publication. For additional information on commercial use, see \"Prokudin-Gorskii...,\" https://hdl.loc.gov/loc.pnp/res.237.prok"
+      ]
+    },
+    {
+      "filename": "custom_malorossiya.tif",
+      "label": "V Malorossii",
+      "item_id": "2018679028",
+      "item_url": "https://www.loc.gov/item/2018679028/",
+      "title": "V Malorossīi",
+      "date": "1905-01-01",
+      "resource_caption": "digital file from glass neg.",
+      "resource_url": "https://www.loc.gov/resource/prok.00164/",
+      "download_url": "https://tile.loc.gov/storage-services/master/pnp/prok/00100/00164a.tif",
+      "bytes": 73472290,
+      "sha256": "dc4c1efeced99e10aad816715f8e85e7bec3cb5f4484d0a19ec2eea12bf196b2",
+      "rights_advisory": [
+        "No known restrictions on publication. For additional information on commercial use, see \"Prokudin-Gorskii...,\" https://hdl.loc.gov/loc.pnp/res.237.prok"
+      ]
+    },
+    {
+      "filename": "custom_suna_river.tif",
+      "label": "Suna River",
+      "item_id": "2018679170",
+      "item_url": "https://www.loc.gov/item/2018679170/",
+      "title": "[Suna River at the village of Maloe Voronovo]",
+      "date": "1915-01-01",
+      "resource_caption": "digital file from glass neg.",
+      "resource_url": "https://www.loc.gov/resource/prok.00167/",
+      "download_url": "https://tile.loc.gov/storage-services/master/pnp/prok/00100/00167a.tif",
+      "bytes": 73623114,
+      "sha256": "cea45b33c8dcd45091e5d996c7fd21c23a8f118972ce5c0af01140e0bbcd6ceb",
+      "rights_advisory": [
+        "No known restrictions on publication. For additional information on commercial use, see \"Prokudin-Gorskii...,\" https://hdl.loc.gov/loc.pnp/res.237.prok"
+      ]
+    }
+  ]
+}
